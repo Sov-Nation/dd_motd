@@ -6,5 +6,5 @@ description "DokaDoka's Message of the Day"
 
 client_scripts {
 	'client/main.lua',
-	'config.lau'
+	'config.lua'
 }
