@@ -11,7 +11,7 @@ end)
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
-  PlayerData = xPlayer   
+  PlayerData = xPlayer
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -30,10 +30,15 @@ AddEventHandler("playerSpawned", function(spawn)
 	end
 end)
 
+AddEventHandler('dd_motd:wait', function(time)
+	Wait(time*1000)
+	display = false
+end)
+
 function motd()
 	local scaleform = ESX.Scaleform.Utils.RequestScaleformMovie('MP_BIG_MESSAGE_FREEMODE')
 	display = true
-	
+
 	BeginScaleformMovieMethod(scaleform, 'SHOW_WEAPON_PURCHASED')
 
 	PushScaleformMovieMethodParameterString(Config.text1)
@@ -46,9 +51,7 @@ function motd()
 		while display do
 			Wait(0)
 			DrawScaleformMovieFullscreen(scaleform, 255, 255, 255, 255)
-			if (IsControlJustReleased(0, 194)) then
-				display = false
-			end
+			TriggerEvent('dd_motd:wait', 10)
 		end
 	end)
 end
