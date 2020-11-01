@@ -33,7 +33,7 @@ end)
 AddEventHandler('dd_motd:wait', function(time)
 	Wait(time*1000)
 	display = false
-end
+end)
 
 function motd()
 	local scaleform = ESX.Scaleform.Utils.RequestScaleformMovie('MP_BIG_MESSAGE_FREEMODE')
